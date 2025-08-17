@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'dart:html' as html;
+//import 'dart:html' as html;
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:open_file/open_file.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+//import 'package:flutter/foundation.dart' show kIsWeb;
 import '../constants.dart';
 import '../models/transaction_model.dart';
 
@@ -276,7 +277,48 @@ class ApiService {
     }
   }
 
-  // Historial de transacciones en PDF
+  // // Historial de transacciones en PDF
+  // Future<void> downloadTransactionPdf() async {
+  //   String? token = await _getToken();
+  //   if (token == null) {
+  //     throw Exception("No se encontró un token válido.");
+  //   }
+  //
+  //   final response = await http.get(
+  //     Uri.parse(Constants.transactionPdfEndpoint),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Authorization": "Bearer $token"
+  //     },
+  //   );
+  //
+  //   if (response.statusCode == 200) {
+  //     if (kIsWeb) {
+  //       // For web, we'll trigger a download in the browser
+  //       final blob = html.Blob([response.bodyBytes]);
+  //       final url = html.Url.createObjectUrlFromBlob(blob);
+  //       final anchor = html.AnchorElement(href: url)
+  //         ..setAttribute("download", "historial_transacciones.pdf")
+  //         ..click();
+  //       html.Url.revokeObjectUrl(url);
+  //     } else {
+  //       // For mobile platforms, we'll save the file locally
+  //       Directory tempDir;
+  //       if (Platform.isAndroid) {
+  //         tempDir = await getExternalStorageDirectory() ?? await getTemporaryDirectory();
+  //       } else {
+  //         tempDir = await getTemporaryDirectory();
+  //       }
+  //       String tempPath = tempDir.path;
+  //       File file = File('$tempPath/historial_transacciones.pdf');
+  //       await file.writeAsBytes(response.bodyBytes);
+  //       // You might want to open the file here or notify the user of its location
+  //     }
+  //   } else {
+  //     throw Exception("Error al descargar el PDF: ${response.statusCode}");
+  //   }
+  // }
+
   Future<void> downloadTransactionPdf() async {
     String? token = await _getToken();
     if (token == null) {
@@ -292,30 +334,17 @@ class ApiService {
     );
 
     if (response.statusCode == 200) {
-      if (kIsWeb) {
-        // For web, we'll trigger a download in the browser
-        final blob = html.Blob([response.bodyBytes]);
-        final url = html.Url.createObjectUrlFromBlob(blob);
-        final anchor = html.AnchorElement(href: url)
-          ..setAttribute("download", "historial_transacciones.pdf")
-          ..click();
-        html.Url.revokeObjectUrl(url);
-      } else {
-        // For mobile platforms, we'll save the file locally
-        Directory tempDir;
-        if (Platform.isAndroid) {
-          tempDir = await getExternalStorageDirectory() ?? await getTemporaryDirectory();
-        } else {
-          tempDir = await getTemporaryDirectory();
-        }
-        String tempPath = tempDir.path;
-        File file = File('$tempPath/historial_transacciones.pdf');
-        await file.writeAsBytes(response.bodyBytes);
-        // You might want to open the file here or notify the user of its location
-      }
+      final directory = await getApplicationDocumentsDirectory();
+      final filePath = '${directory.path}/transaction.pdf';
+      final file = File(filePath);
+      await file.writeAsBytes(response.bodyBytes);
+
+      // Open the file
+      await OpenFile.open(filePath);
     } else {
-      throw Exception("Error al descargar el PDF: ${response.statusCode}");
+      throw Exception('Failed to download PDF');
     }
   }
+
 
 }

@@ -149,17 +149,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisSpacing: 16,
                   children: [
                     _buildQuickActionCard(
-                      Image.asset('assets/pagos.png', width: 200, height: 200),
+                      Image.asset('assets/pagos.png', width: 40, height: 40),
                       'Pagos',
                           () => Navigator.pushNamed(context, AppRoutes.pagos),
                     ),
                     _buildQuickActionCard(
-                      Image.asset('assets/historial.png', width: 200, height: 200),
+                      Image.asset('assets/historial.png', width: 40, height: 40),
                       'Historial',
                           () => Navigator.pushNamed(context, AppRoutes.transacciones),
                     ),
                     _buildQuickActionCard(
-                      Image.asset('assets/tarjetas.png', width: 200, height: 200),
+                      Image.asset('assets/tarjetas.png', width: 40, height: 40),
                       'Tarjetas',
                           () => Navigator.pushNamed(context, AppRoutes.tarjetas),
                     ),

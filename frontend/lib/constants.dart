@@ -1,6 +1,6 @@
 class Constants {
-  static const String baseUrlSpring = "http://localhost:8080"; // URL del backend en Spring Boot
-  static const String baseUrlFlask = "http://localhost:5000"; // URL del backend en Flask
+  static const String baseUrlSpring = "http://10.40.15.131:8080"; // URL del backend en Spring Boot
+  static const String baseUrlFlask = "http://10.40.15.131:5000"; // URL del backend en Flask
 
   static const String loginEndpoint = "$baseUrlSpring/users/login";
   static const String registerEndpoint = "$baseUrlSpring/users/register";

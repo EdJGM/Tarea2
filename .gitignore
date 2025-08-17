@@ -1,0 +1,340 @@
+# Archivo .gitignore para proyecto CashBank (Flutter + Spring Boot + Flask)
+
+# ===================================
+# GENERAL
+# ===================================
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.#*
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# ===================================
+# FLUTTER / DART
+# ===================================
+# Archivos generados por Flutter
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+.fvm/
+.vscode/
+
+# Flutter/Dart específicos
+flutter_*.png
+
+# Archivos de configuración local
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Android
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+*.jks
+
+# iOS
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+
+# Web
+**/web/packages/
+lib/generated_plugin_registrant.dart
+
+# ===================================
+# JAVA / SPRING BOOT / MAVEN
+# ===================================
+# Archivos compilados
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Logs de Maven
+maven-*.log
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+
+# Spring Boot
+.gradle
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Archivos de configuración sensibles
+application-local.properties
+application-dev.properties
+application-prod.properties
+
+# ===================================
+# PYTHON / FLASK
+# ===================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.env
+.venv
+
+# Flask instance folder
+instance/
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# ===================================
+# BASE DE DATOS
+# ===================================
+# MongoDB
+*.db
+data/
+
+# MySQL
+*.sql.backup
+*.sql.gz
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# ===================================
+# ARCHIVOS DE CONFIGURACIÓN SENSIBLES
+# ===================================
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Claves y certificados
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# Configuraciones de base de datos
+database.properties
+db.properties
+
+# ===================================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# ===================================
+# PDFs generados por la aplicación
+historial_*.pdf
+
+# Archivos de reportes
+reportes/
+
+# Archivos de backup
+*.backup
+*.bak
+
+# Archivos temporales de desarrollo
+todo.txt
+notes.txt
+TODO.md
+
+# ===================================
+# HERRAMIENTAS DE DESARROLLO
+# ===================================
+# SonarQube
+.sonar/
+
+# ESLint
+.eslintcache
+
+# Prettier
+.prettierignore
+
+# Gradle Wrapper
+gradle-wrapper.properties
+gradle/
+gradlew
+gradlew.bat
+
+# ===================================
+# SERVICIOS EN LA NUBE
+# ===================================
+# Heroku
+.heroku/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+
+# ===================================
+# ARCHIVOS DEL PROYECTO ESPECÍFICOS
+# ===================================
+# Archivos de documentación generados
+*.pdf
+*.docx
+!README.md
+
+# Archivos de prueba
+test-results/
+coverage-reports/
+
+# Archivos de deployment
+deploy/
+deployment/
+scripts/deploy.sh
+
+# Configuraciones locales
+local.properties
+config.local.py
+constants.local.dart
